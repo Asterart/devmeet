@@ -1,0 +1,68 @@
+<% provide(:title, "Add new conference") %>
+
+<%= form_for(@conference) do |c| %>
+	
+	<h1>Conference details</h1>
+	<div class="row">
+
+		<div class="col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3">
+			
+			<h2>Date of Conference:</h2>
+				<table>
+					<tr>
+						<td><%= c.label :Conferece_date %></td>
+						<td>
+							<div class="col-md-12">
+								<div class="form-group">
+									<div class="input-group date" id="datetimepicker1">
+										<%= c.text_field :Conf_date, class: 'form-control' %>	
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-calendar"></span>
+										</span>
+									</div>
+								</div>							
+							</div>
+						</td>
+					</tr>
+				</table>
+
+			<h2>Address:</h2>
+				<table>				
+					<tr>	
+						<td><%= c.label :Street %>*  </td>
+						<td><%= c.text_field :Street, placeholder: "Street name and number.." %></td>
+					</tr>
+
+					<tr>
+						<td><%= c.label :City %>*  </td>
+						<td><%= c.text_field :City, placeholder: "City.." %></td>
+					</tr>
+					<tr>
+						<td><%= c.label :Country %>*  </td>
+						<td><%= c.text_field :Country, placeholder: "Country.." %></td>
+					</tr>
+				</table>
+
+			<h2>Description:</h2>
+				<table>				
+					<tr>	
+						<td><%= c.label :Programming_language %>*</td>
+						<td><%= c.text_field :Prog_lang, placeholder: "Programming language (topic)..." %></td>
+					</tr>
+					<tr>
+						<td><%= c.label :Short_description %></td>
+						<td><%= c.text_area :Short_desc, placeholder: "Write about conference..." %></td>
+					</tr>
+				</table>
+
+		</div>
+		<div class="col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3">
+			<p>*Required fields</p>
+		</div>
+	</div>
+	<p>
+		<div class="col-md-6 col-xs-6 col-md-offset-3 col-xs-offset-3">
+			<%= c.submit "Add conference details", class: "btn btn-primary" %>
+		</div>
+	</p>
+<% end %>

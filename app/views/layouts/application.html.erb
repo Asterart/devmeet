@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= render 'layouts/rails_default' %>
+    <%= render 'layouts/shim' %>
+    <meta name = "viewport" content ="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+	  <%= render 'layouts/header' %>
+    <%= render 'conferences/search' %>
+	  <div class="container">
+	   	<%= yield %>
+    </div>
+    <div class="container">
+	   	<%= render 'layouts/footer' %>
+	  </div>
+    
+  </body>
+</html>
