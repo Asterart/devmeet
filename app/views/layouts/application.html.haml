@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title= full_title(yield(:title))
+    = render 'layouts/rails_default'
+    = render 'layouts/shim'
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
+
+  %body
+    = render 'layouts/header'
+    = render 'conferences/search'
+    .container
+      = yield
+    .container
+      = render 'layouts/footer'

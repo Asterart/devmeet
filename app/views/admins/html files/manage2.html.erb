@@ -1,0 +1,17 @@
+<% provide(:title, "Home") %>
+
+<% @conferences.each do |c| %>
+	<div class="col-md-12 col-xs-12">
+			<p><h2><%= c.Conf_date %><br/><br/>
+			<%=h c.Prog_lang %></h2></p>
+
+			<p>Konferencja odbędzie się w mieście <%=h c.City %> na ul. <%=h c.Street %></p>
+			<p>Kilka słów o samej konferencji:<br/>
+			<%=h c.Short_desc %></p>
+
+				<%= button_to "Accept", name: "button_action", value: "accept" %>
+				<%= button_to "Decline", name: "button_action", value: "decline" %>
+
+	</div>
+
+<% end %>
