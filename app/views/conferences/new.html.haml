@@ -1,0 +1,59 @@
+- provide(:title, "Add new conference")
+
+= form_for(@conference) do |c|
+	
+	%h1 
+		Conference details
+	.row
+		.col-md-6.col-xs-6.col-md-offset-3.col-xs-offset-3
+			
+			%h2 
+				Date of Conference:
+			%table
+				%tr
+					%td= c.label :Conferece_date
+					%td
+						.col-md-12
+							.form-group
+								#datetimepicker1.input-group.date
+									= c.text_field :Conf_date, class: 'form-control'
+									.input-group-addon
+										.glyphicon.glyphicon-calendar
+
+			%h2 
+				Address:
+			%table				
+				%tr
+					%td
+						= c.label :Street
+						* 
+					%td= c.text_field :Street, placeholder: "Street name and number.."
+				%tr
+					%td
+						= c.label :City
+						* 
+					%td= c.text_field :City, placeholder: "City.."
+				%tr
+					%td
+						= c.label :Country
+						*
+					%td= c.text_field :Country, placeholder: "Country.."
+
+			%h2
+				Description:
+			%table		
+				%tr
+					%td
+						= c.label :Programming_language
+						*
+					%td= c.text_field :Prog_lang, placeholder: "Programming language (topic)..."
+				%tr
+					%td= c.label :Short_description
+					%td= c.text_area :Short_desc, placeholder: "Write about conference..."
+
+		.col-md-6.col-xs-6.col-md-offset-3.col-xs-offset-3
+			%p *Required fields
+
+		%p
+			.col-md-6.col-xs-6.col-md-offset-3.col-xs-offset-3
+				= c.submit "Add conference details", class: "btn btn-primary"
