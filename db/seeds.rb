@@ -8,7 +8,7 @@
 
 
 #mainAdminUser = Admin.new(
- #   email: "me@devmeet.com",
+#    email: "me2@devmeet.com",
 #    password: "foobar",
 #    password_confirmation: "foobar"
 #)
@@ -21,7 +21,18 @@ conf1 = Conference.new(
 		City: "Kraków",
 		Country: "Polska",
 		Prog_lang: "ROR",
+		Date_of_accept: "2017/10/17 15:35 pm",
+		Short_desc: "jakis opis o konferencji"
+)
+
+conf2 = Conference.new(
+		Conf_date: "2017/10/12 15:25 pm",
+		Street: "Aleja 2",
+		City: "Kraków",
+		Country: "Polska",
+		Prog_lang: "Java",
 		Short_desc: "jakis opis o konferencji"
 )
 
 conf1.save!
+conf2.save!

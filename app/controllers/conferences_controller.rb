@@ -10,6 +10,8 @@ class ConferencesController < ApplicationController
 				@conferences = Conference.all
 			end
 
+			@conferences = Conference.order("Conf_date")
+
 			respond_to do |f|
 				f.html
 				f.xml { render :xml => @conferences }

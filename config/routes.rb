@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get '/new', to: 'conferences#new'
   get '/manage', to: 'admins#manage'
 
+  post '/decline', to: 'admins#decline'
+
   resources :conferences
 end

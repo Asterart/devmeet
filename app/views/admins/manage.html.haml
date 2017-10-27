@@ -16,6 +16,11 @@
 			Kilka słów o samej konferencji:
 			%br
 			=h c.Short_desc
-
-		= button_to "Accept", name: "button_action", value: "accept"
-		= button_to "Decline", name: "button_action", value: "decline"
+		- if c.Date_of_accept.present?
+			= button_to "Decline", {:controller => :admins, action: 'decline', :id => c.id}, :method => :post
+		-	elsif c.Date_of_reject.present?
+			= button_to "Accept", value: "accept"
+			= button_to "Remove", value: "remove"
+		-	else
+			= button_to "Accept", value: "accept"
+			= button_to "Decline", value: "decline"
