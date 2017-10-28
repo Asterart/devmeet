@@ -17,10 +17,10 @@
 			%br
 			=h c.Short_desc
 		- if c.Date_of_accept.present?
-			= button_to "Decline", {:controller => :admins, action: 'decline', :id => c.id}, :method => :post
+			= button_to "Decline", {:controller => :admins, action: 'decline', :id => c.id}, data: {confirm: 'Are you sure you want to decline this conference?'}, :method => :post
 		-	elsif c.Date_of_reject.present?
-			= button_to "Accept", value: "accept"
-			= button_to "Remove", value: "remove"
+			= button_to "Accept", {:controller => :admins, action: 'accept', :id => c.id}, data: {confirm: 'Are you sure you want to accept this conference?'}, :method => :post
+			= button_to "Remove", {:controller => :admins, action: 'destroy', :id => c.id}, data: {confirm: 'Are you sure you want to delete this conference from db?'}, :method => :post
 		-	else
-			= button_to "Accept", value: "accept"
-			= button_to "Decline", value: "decline"
+			= button_to "Accept", {:controller => :admins, action: 'accept', :id => c.id}, data: {confirm: 'Are you sure you want to accept this conference?'}, :method => :post
+			= button_to "Decline", {:controller => :admins, action: 'decline', :id => c.id}, data: {confirm: 'Are you sure you want to decline this conference?'}, :method => :post

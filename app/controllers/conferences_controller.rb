@@ -26,8 +26,10 @@ class ConferencesController < ApplicationController
 	def create
 		@conference = Conference.new(conference_params)
 		if @conference.save
+			flash[:success] = "Conference details added and are waiting for acceptation"
 			redirect_to root_url
 		else
+			flash[:warning] = "Ups something goes wrong, check details and try again"
 			render 'new'
 		end
 	end

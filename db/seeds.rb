@@ -16,7 +16,7 @@
 #mainAdminUser.save!
 
 conf1 = Conference.new(
-		Conf_date: "2017/10/15 15:35 pm",
+		Conf_date: "2017/12/15 15:35 pm",
 		Street: "Aleja 2",
 		City: "Kraków",
 		Country: "Polska",
@@ -26,7 +26,7 @@ conf1 = Conference.new(
 )
 
 conf2 = Conference.new(
-		Conf_date: "2017/10/12 15:25 pm",
+		Conf_date: "2018/10/12 15:25 pm",
 		Street: "Aleja 2",
 		City: "Kraków",
 		Country: "Polska",
@@ -34,5 +34,16 @@ conf2 = Conference.new(
 		Short_desc: "jakis opis o konferencji"
 )
 
+conf3 = Conference.new(
+		Conf_date: "2017/11/15 12:35 pm",
+		Street: "Aleja 2",
+		City: "Trn",
+		Country: "USA",
+		Prog_lang: "ROR",
+		Date_of_reject: "2017/10/17 15:35 pm",
+		Short_desc: "jakis opis o konferencji"
+)
+
 conf1.save!
 conf2.save!
+conf3.save!

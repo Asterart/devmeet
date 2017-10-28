@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/manage', to: 'admins#manage'
 
   post '/decline', to: 'admins#decline'
+  post '/remove', to: 'admins#destroy'
+  post '/accept', to: 'admins#accept'
 
   resources :conferences
 end

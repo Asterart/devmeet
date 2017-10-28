@@ -10,6 +10,9 @@
     = render 'layouts/header'
     = render 'conferences/search'
     .container
+      - flash.each do |msg_type, msg|
+        %div{:class => "alert alert-#{msg_type}"}= msg
+    .container
       = yield
     .container
       = render 'layouts/footer'
