@@ -5,6 +5,7 @@ Introduction
 Devmeet is a simple app made by BosuqueSquad that is getting information about programming conferences from a lot of different services using their API and putting them tougheter into one place
 
 App is using:
+
 	Rails 5.1.4 version
 	Ruby 2.4.0-p0 version
 	MySQL as default database
