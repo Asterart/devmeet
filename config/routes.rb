@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/new', to: 'conferences#new'
   get '/manage', to: 'admins#manage'
+  get '/meetupdata', to: 'conferences#meetupdata'
 
   post '/decline', to: 'admins#decline'
   post '/remove', to: 'admins#destroy'

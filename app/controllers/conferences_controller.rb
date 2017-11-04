@@ -34,6 +34,17 @@ class ConferencesController < ApplicationController
 		end
 	end
 
+	def meetupdata
+		params = {category: '3',
+							format: 'json',
+							status: 'upcoming',
+							page: '10'}
+
+		meetup_api = MeetupApi.new
+		@open_events = meetup_api.open_events(params)
+		#@open_events = JSON.parse(@events)
+
+	end
 
 	private
 
@@ -43,3 +54,6 @@ class ConferencesController < ApplicationController
 
 
 end
+
+
+# api meetup key 48317618424e19536d7e67541b671952

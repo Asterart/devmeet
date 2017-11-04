@@ -1,0 +1,4 @@
+MeetupClient.configure do |config|
+	MEETUP_API_KEY = '48317618424e19536d7e67541b671952'
+  config.api_key = MEETUP_API_KEY #48317618424e19536d7e67541b671952
+end

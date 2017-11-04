@@ -43,6 +43,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 gem 'haml'
 
+gem 'meetup_client'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 

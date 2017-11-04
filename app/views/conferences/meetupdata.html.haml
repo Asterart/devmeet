@@ -1,0 +1,13 @@
+- provide(:title, "API")
+
+- @open_events["results"].each do |e|
+	.col-md-12.col-xs-12
+		%p
+			=h Time.at(e["time"]).to_date.to_s
+			=h e["time"]
+		%p
+			=h e["name"].html_safe
+		%p
+			=h e["description"].html_safe
+		%br
+		%p
