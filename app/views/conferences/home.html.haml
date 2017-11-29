@@ -9,10 +9,11 @@
 					= c.Conf_date
 					%br
 					%br
-					=h c.Prog_lang
-			%p 
-				Konferencja odbędzie się w mieście #{h c.City} na ul. #{h c.Street}
+					= c.Prog_lang
+					%br
+					%br
+					= c.City + " " + c.Street
 			%p 
 				Kilka słów o samej konferencji:
 				%br
-				=h c.Short_desc
+				= c.Short_desc.html_safe

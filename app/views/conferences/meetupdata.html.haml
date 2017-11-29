@@ -1,5 +1,14 @@
 - provide(:title, "API")
 
+.col-md-12.col-xs-12
+	%p Database were succesfully uploaded with new conferences from Meetup API
+
+
+
+
+	
+-# all turned off to only let API link upload database with new records
+-=begin
 - @open_events["results"].each do |e|
 	.col-md-12.col-xs-12
 		%p
@@ -11,14 +20,20 @@
 				%p
 				- details = HashWithIndifferentAccess.new(e["venue"])
 				- if details["city"].present?
-					=h details["city"]
+					= details["city"]
+					%br
+				- if details["address_1"].present? || details["address_2"].present? || details["address_3"].present?
+					= details["address_1"]
+					= details["address_2"] 
+					= details["address_3"]
 					%br
 				- if details["localized_country_name"].present?
-					=h details["localized_country_name"]
+					= details["localized_country_name"]
 				%p
-				=h e["name"].html_safe
+				= e["name"].html_safe
 		%p
-			=h e["description"].html_safe unless e["description"].blank?
+			= e["description"].html_safe unless e["description"].blank?
 		%br
 		%br
 		%br
+-=end

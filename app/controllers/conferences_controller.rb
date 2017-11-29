@@ -2,12 +2,12 @@ class ConferencesController < ApplicationController
 
 	def home
 		
-			@conferences = Conference.all
+	#		@conferences = Conference.all
 
 			if params[:search]
 				@conferences = Conference.search(params[:search])
 			else
-				@conferences = Conference.all
+				#@conferences = Conference.all
 			end
 
 			@conferences = Conference.order("Conf_date")
@@ -35,7 +35,7 @@ class ConferencesController < ApplicationController
 	end
 
 	def meetupdata
-		params = {category: '34',
+		api_params = {category: '34',
 							lat: '52',
 							lon: '19',
 							radius: '250',
@@ -44,9 +44,35 @@ class ConferencesController < ApplicationController
 							page: '20'}
 
 		meetup_api = MeetupApi.new
-		@open_events = meetup_api.open_events(params)
-		#@open_events = JSON.parse(@events)
+		@open_events = meetup_api.open_events(api_params)
 
+		@open_events["results"].each do |e|
+			temp = e["time"].to_s[0..9]
+			temp2 = Time.at(temp.to_i).utc
+			details = HashWithIndifferentAccess.new(e["venue"])
+			if details["city"].present?
+				details["city"]
+			end
+			if details["address_1"].present? || details["address_2"].present? || details["address_3"].present?
+				address = details["address_1"].to_s << details["address_2"].to_s << details["address_3"].to_s
+			end
+			if details["localized_country_name"].present?
+				details["localized_country_name"]
+			end
+			e["name"].html_safe
+			e["description"].html_safe unless e["description"].blank?
+			
+			if Conference.exists?(Prog_lang: e["name"].html_safe)
+				#place for checking if date of conf is < today's date
+				#if yes then delete from database otherwise skip this and
+				#focus on adding non existing ones
+			else
+				Conference.create(Conf_date: "#{temp2}", Street: "#{address}", City: details['city'],
+					Country: details['localized_country_name'], Prog_lang: e['name'],
+					Short_desc: e["description"].html_safe,
+					Date_of_accept: Time.now.utc)
+			end
+		end
 	end
 
 	private

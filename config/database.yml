@@ -52,3 +52,5 @@ production:
   database: devmeet_production
   username: devmeet
   password: <%= ENV['DEVMEET_DATABASE_PASSWORD'] %>
+  encoding: utf8mb4
+  collation: utf8mb4_bin
